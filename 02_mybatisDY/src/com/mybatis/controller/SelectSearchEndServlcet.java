@@ -42,8 +42,9 @@ public class SelectSearchEndServlcet extends HttpServlet {
 		String salary_le_ge = request.getParameter("salary_le_ge");
 		String hire_date = request.getParameter("hire_date");
 		String hire_date_le_ge = request.getParameter("hire_date_le_ge");
+		String[] jobs = request.getParameterValues("job_code");
 		
-		Map<String, String> param = new HashMap();
+		Map<String, Object> param = new HashMap();
 		
 		param.put("type",searchType);
 		param.put("key",keyword);
@@ -52,12 +53,12 @@ public class SelectSearchEndServlcet extends HttpServlet {
 		param.put("flag", salary_le_ge);
 		param.put("hire_date",hire_date);
 		param.put("hire_date_le_ge",hire_date_le_ge);
+		param.put("jobs",jobs);
 		
 		List<Map> list = service.selectSearch(param);
 
 		request.setAttribute("emp", list);
-		request.getRequestDispatcher("/WEB-INF/views/selectSearch.jsp").forward(request, response);
-		
+		request.getRequestDispatcher("/WEB-INF/views/selectSearch.jsp").forward(request, response);		
 	}
 
 	/**

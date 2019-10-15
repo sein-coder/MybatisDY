@@ -12,10 +12,32 @@ import com.mybatis.model.dao.EmpDaoImpl;
 
 public class EmpServiceImpl implements EmpService {
 
-	private EmpDao dao = new EmpDaoImpl();
+	private EmpDao dao = new EmpDaoImpl();	
 	
 	@Override
-	public List<Map> selectSearch(Map<String, String> param) {
+	public List<Map> selectPageList(int cPage, int numPerPage) {
+		SqlSession session = getSession();
+		List<Map> list = dao.selectPageList(session,cPage,numPerPage);
+		session.close();
+		return list;
+	}
+
+
+
+
+	@Override
+	public int selectCount() {
+		SqlSession session = getSession();
+		int result = dao.selectCount(session);
+		session.close();
+		return result;
+	}
+
+
+
+
+	@Override
+	public List<Map> selectSearch(Map<String, Object> param) {
 		SqlSession session = getSession();
 		List<Map> list = dao.selectSearch(session,param);
 		return list;

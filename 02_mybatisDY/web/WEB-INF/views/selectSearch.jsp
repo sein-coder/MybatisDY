@@ -10,6 +10,10 @@
 <meta charset="UTF-8">
 <title>항목별 검색</title>
 </head>
+
+<!-- WEB-INF는 보안폴더이기때문에 직접 외부에서 접근이 불가능
+그래서 무조건 서블릿을 통해서만 들어가야한다. -->
+
 <body>
 	<div id="search-container">
 		<form action="${path }/selectSearchEnd" method="post">
@@ -61,6 +65,31 @@
 						<label>
 							<input type="radio" name="hire_date_le_ge" id="date_le" value="le">이전
 						</label>
+					</td>
+				</tr>
+				<tr>
+					<th>직책</th>
+					<td>
+						<input type="checkbox" name="job_code" id="J1" value="J1">
+						<label for="J1">대표</label>
+						
+						<input type="checkbox" name="job_code" id="J2" value="J2">
+						<label for="J2">부사장</label>
+						
+						<input type="checkbox" name="job_code" id="J3" value="J3">
+						<label for="J3">부장</label>
+						
+						<input type="checkbox" name="job_code" id="J4" value="J4">
+						<label for="J4">차장</label>
+						
+						<input type="checkbox" name="job_code" id="J5" value="J5">
+						<label for="J5">과장</label>
+						
+						<input type="checkbox" name="job_code" id="J6" value="J6">
+						<label for="J6">대리</label>
+						
+						<input type="checkbox" name="job_code" id="J7" value="J7">
+						<label for="J7">사원</label>
 						
 					</td>
 				</tr>

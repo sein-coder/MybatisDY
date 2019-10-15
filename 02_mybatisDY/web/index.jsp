@@ -12,5 +12,6 @@
 </head>
 <body>
 	<a href="${path }/selectSearch">항목별 검색($활용)</a>
+	<a href="${path }/selectPage">페이징처리(RowBounds)</a>
 </body>
 </html>
